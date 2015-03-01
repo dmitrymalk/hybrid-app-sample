@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "Java2ObjcExampleClass.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -17,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [EngineJava2ObjcExampleClass new];
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];

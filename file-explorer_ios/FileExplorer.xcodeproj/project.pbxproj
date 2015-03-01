@@ -15,7 +15,24 @@
 		B45FAB721AA3605D00652AA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB711AA3605D00652AA6 /* Images.xcassets */; };
 		B45FAB751AA3605D00652AA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB731AA3605D00652AA6 /* LaunchScreen.xib */; };
 		B45FAB811AA3605D00652AA6 /* FileExplorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB801AA3605D00652AA6 /* FileExplorerTests.m */; };
+		B4A8283C1AA3956000C90DA9 /* j2objc-generated in Resources */ = {isa = PBXBuildFile; fileRef = B4A8283B1AA3956000C90DA9 /* j2objc-generated */; };
+		B4A8283E1AA3956A00C90DA9 /* Java2ObjcExampleClass.java in Sources */ = {isa = PBXBuildFile; fileRef = B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		B4A8281A1AA385D500C90DA9 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.java;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/myfile",
+				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
+				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h",
+			);
+			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME not correctly defined \nin Settings.xcconfig, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${PROJECT_DIR}/../file-explorer_android/app/src/main/java/engine\" --no-package-directories -g ${INPUT_FILE_PATH};";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		B45FAB7B1AA3605D00652AA6 /* PBXContainerItemProxy */ = {
@@ -43,6 +60,9 @@
 		B45FAB7A1AA3605D00652AA6 /* FileExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45FAB7F1AA3605D00652AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45FAB801AA3605D00652AA6 /* FileExplorerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileExplorerTests.m; sourceTree = "<group>"; };
+		B4A828161AA3832400C90DA9 /* Settings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Settings.xcconfig; sourceTree = "<group>"; };
+		B4A8283B1AA3956000C90DA9 /* j2objc-generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "j2objc-generated"; sourceTree = "<group>"; };
+		B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Java2ObjcExampleClass.java; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +86,7 @@
 		B45FAB551AA3605D00652AA6 = {
 			isa = PBXGroup;
 			children = (
+				B4A828161AA3832400C90DA9 /* Settings.xcconfig */,
 				B45FAB601AA3605D00652AA6 /* FileExplorer */,
 				B45FAB7D1AA3605D00652AA6 /* FileExplorerTests */,
 				B45FAB5F1AA3605D00652AA6 /* Products */,
@@ -84,6 +105,8 @@
 		B45FAB601AA3605D00652AA6 /* FileExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				B4A8283B1AA3956000C90DA9 /* j2objc-generated */,
+				B4A828341AA392E900C90DA9 /* engine */,
 				B45FAB651AA3605D00652AA6 /* AppDelegate.h */,
 				B45FAB661AA3605D00652AA6 /* AppDelegate.m */,
 				B45FAB681AA3605D00652AA6 /* MasterViewController.h */,
@@ -124,6 +147,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B4A828341AA392E900C90DA9 /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */,
+			);
+			name = engine;
+			path = "../../file-explorer_android/app/src/main/java/engine";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,6 +168,7 @@
 				B45FAB5C1AA3605D00652AA6 /* Resources */,
 			);
 			buildRules = (
+				B4A8281A1AA385D500C90DA9 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -168,6 +201,7 @@
 		B45FAB561AA3605D00652AA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FED;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Dmitry Malkovich";
 				TargetAttributes = {
@@ -206,6 +240,7 @@
 			files = (
 				B45FAB701AA3605D00652AA6 /* Main.storyboard in Resources */,
 				B45FAB751AA3605D00652AA6 /* LaunchScreen.xib in Resources */,
+				B4A8283C1AA3956000C90DA9 /* j2objc-generated in Resources */,
 				B45FAB721AA3605D00652AA6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B45FAB671AA3605D00652AA6 /* AppDelegate.m in Sources */,
+				B4A8283E1AA3956A00C90DA9 /* Java2ObjcExampleClass.java in Sources */,
 				B45FAB6A1AA3605D00652AA6 /* MasterViewController.m in Sources */,
 				B45FAB641AA3605D00652AA6 /* main.m in Sources */,
 				B45FAB6D1AA3605D00652AA6 /* DetailViewController.m in Sources */,
@@ -271,6 +307,7 @@
 /* Begin XCBuildConfiguration section */
 		B45FAB821AA3605D00652AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4A828161AA3832400C90DA9 /* Settings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -313,6 +350,7 @@
 		};
 		B45FAB831AA3605D00652AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4A828161AA3832400C90DA9 /* Settings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -350,9 +388,17 @@
 		B45FAB851AA3605D00652AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${J2OBJC_HOME}/include\"",
+					"\"${DERIVED_FILES_DIR}\"",
+				);
 				INFOPLIST_FILE = FileExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"${J2OBJC_HOME}/lib\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -360,9 +406,17 @@
 		B45FAB861AA3605D00652AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"${J2OBJC_HOME}/include\"",
+					"\"${DERIVED_FILES_DIR}\"",
+				);
 				INFOPLIST_FILE = FileExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"${J2OBJC_HOME}/lib\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -420,6 +474,7 @@
 				B45FAB861AA3605D00652AA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B45FAB871AA3605D00652AA6 /* Build configuration list for PBXNativeTarget "FileExplorerTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +483,7 @@
 				B45FAB891AA3605D00652AA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

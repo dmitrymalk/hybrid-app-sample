@@ -1,0 +1,13 @@
+//
+//  Settings.xcconfig
+//  FileExplorer
+//
+//  Created by Dmitry Malkovich on 3/1/15.
+//  Copyright (c) 2015 Dmitry Malkovich. All rights reserved.
+//
+
+J2OBJC_HOME = /Users/dmitrymalkovich/Documents/Developer/Tools/j2objc-0.9.6.1;
+
+HEADER_SEARCH_PATHS = $(inherited) "${J2OBJC_HOME}/include" "${DERIVED_FILES_DIR}";
+LIBRARY_SEARCH_PATHS = $(inherited) "${J2OBJC_HOME}/lib";
+OTHER_LDFLAGS = $(inherited) -l"z" -l"jre_emul" -l"icucore";
