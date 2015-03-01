@@ -17,3 +17,52 @@ allprojects {
         jcenter()
     }
 }
+
+apply from: 'j2obc.gradle'
+
+j2objcConfig {
+
+    // MODIFY to where your unzipped j2objc directory is located
+    j2objcHome null  // e.g. "${projectDir}/../../j2objc or absolute path
+
+    // MODIFY to where generated objc files should be put for Xcode project
+    // NOTE these files should be checked in to the repository and updated as needed
+    // NOTE this should contain ONLY j2objc generated files, other contents will be deleted
+    destDir null  // e.g. "${projectDir}/../Xcode/j2objc-generated"
+
+
+    // FLAGS
+    // Uncomment each of the following to use. The flags are set to the plugin defaults.
+
+    // Translate flags for j2objc
+    // This is where to add "-classpath" for jar dependencies, note that the
+    // translated and compiled libraries also needs to be added to compileFlags as well
+    // translateFlags "--no-package-directories"
+
+    // Compile flags for j2objcc
+    // compileFlags "-ObjC -ljre_emul -ljunit -lmockito"
+
+    // Test flags for translated test
+    // testFlags ""
+
+    // J2objc libraries, must be available in $J2OBJC_HOME/lib/..., e.g. add guava here
+    // translateJ2objcLibs "junit-4.10.jar", "mockito-core-1.9.5.jar"
+
+
+    // FILTERS
+    // Filter on files to translate or test, ignored if null
+    // Matches on path, not filename or Class name
+    // Must match IncludeRegex and NOT match ExcludeRegex
+    // You can remove the "()" in "*()/" - it's a workaround to avoid closing the '/*' comment
+
+    // translateExcludeRegex ".*()/src/(main|test)/java/com/example/EXCLUDE_DIR/.*"
+    // translateIncludeRegex ".*()/TranslateOnlyMeAnd(|Test)\\.java"
+
+    // Test filter also applies the translate filter
+    // testExcludeRegex ".*()/(IgnoreOneTest|IgnoreTwoTest)\\.java"
+    // testIncludeRegex ".*()/OnlyThisTest\\.java"
+
+    // Helpful checks that you can disable
+    // boolean filenameCollisionCheck = true
+    // boolean testExecutedCheck = true
+}
