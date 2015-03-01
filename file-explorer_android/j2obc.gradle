@@ -134,7 +134,7 @@ class J2objcPluginExtension {
     String testIncludeRegex = null
 
     boolean filenameCollisionCheck = true
-    boolean testExecutedCheck = true
+    boolean testExecutedCheck = false
 }
 
 

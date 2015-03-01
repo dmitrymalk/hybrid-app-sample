@@ -23,12 +23,12 @@ apply from: 'j2obc.gradle'
 j2objcConfig {
 
     // MODIFY to where your unzipped j2objc directory is located
-    j2objcHome null  // e.g. "${projectDir}/../../j2objc or absolute path
+    j2objcHome "${projectDir}/../../../Tools/j2objc-0.9.6.1"  // e.g. "${projectDir}/../../j2objc or absolute path
 
     // MODIFY to where generated objc files should be put for Xcode project
     // NOTE these files should be checked in to the repository and updated as needed
     // NOTE this should contain ONLY j2objc generated files, other contents will be deleted
-    destDir null  // e.g. "${projectDir}/../Xcode/j2objc-generated"
+    destDir "${projectDir}/../file-explorer_ios/FileExplorer/j2objc-generated"  // e.g. "${projectDir}/../Xcode/j2objc-generated"
 
 
     // FLAGS
@@ -55,14 +55,14 @@ j2objcConfig {
     // Must match IncludeRegex and NOT match ExcludeRegex
     // You can remove the "()" in "*()/" - it's a workaround to avoid closing the '/*' comment
 
-    // translateExcludeRegex ".*()/src/(main|test)/java/com/example/EXCLUDE_DIR/.*"
-    // translateIncludeRegex ".*()/TranslateOnlyMeAnd(|Test)\\.java"
+    translateExcludeRegex ".*()/src/(main|test)/java/com/dmitrymalkovich/EXCLUDE_DIR/.*"
+    translateIncludeRegex ".*/src/main/java/engine/.*"
 
     // Test filter also applies the translate filter
-    // testExcludeRegex ".*()/(IgnoreOneTest|IgnoreTwoTest)\\.java"
-    // testIncludeRegex ".*()/OnlyThisTest\\.java"
+    testExcludeRegex ".*()/(IgnoreOneTest|IgnoreTwoTest)\\.java"
+    testIncludeRegex ".*/src/androidTest/java/com/dmitrymalkovich/fileexplorer/.*"
 
     // Helpful checks that you can disable
-    // boolean filenameCollisionCheck = true
-    // boolean testExecutedCheck = true
+    // boolean filenameCollisionCheck = false
+    // boolean testExecutedCheck = false
 }
