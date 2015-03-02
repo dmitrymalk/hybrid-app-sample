@@ -7,7 +7,7 @@ Sample of hybrid mobile application with common java engine classes for iOS 5.0+
 * Download [J2Objc](https://code.google.com/p/j2objc/) release and extract it.
 * Set up Android project:
   * Open Android Studio and pick "Import Project (Eclipse ADT, Gradle, etc.)" for file-explorer_android folder.
-  * Change "j2objcHome" path.
+  * Change "j2objcHome" path in build.gradle.
   * Open "Gradle Tasks" and run 'j2objcTranslate', 'j2objcCompile' and 'j2objCopy' to translate native Java files to Objective-C files.
 * Set up iOS project:
   * Open "FileExplorer.xcodeproj" in file-explorer_ios folder.
