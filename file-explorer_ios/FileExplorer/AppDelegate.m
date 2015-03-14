@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "Java2ObjcExampleClass.h"
+#import "FileFilter.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -18,7 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Test: j2objc
     [EngineJava2ObjcExampleClass new];
+    [EngineFileFilter new];
+
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];

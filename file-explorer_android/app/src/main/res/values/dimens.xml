@@ -1,0 +1,13 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="list_view_item_padding">16dp</dimen>
+    <dimen name="list_view_drawer_item_padding">8dp</dimen>
+
+    <dimen name="fragment_navigation_drawer_width">304dp</dimen>
+
+    <dimen name="floating_action_button_margin">16dp</dimen>
+
+</resources>

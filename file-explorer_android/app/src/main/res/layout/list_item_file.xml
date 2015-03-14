@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/wrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="@dimen/list_view_item_padding"
+        android:paddingBottom="@dimen/list_view_item_padding">
+
+        <RelativeLayout
+            android:id="@+id/image_wrapper"
+            android:layout_width="56dp"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:id="@+id/predefined_thumbnail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="16dp"
+                android:padding="8dp"
+                android:visibility="gone"
+                android:background="@drawable/shape_circle" />
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_toRightOf="@+id/image_wrapper"
+            android:layout_toEndOf="@+id/image_wrapper"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="72dp"
+        android:layout_below="@+id/wrapper"
+        android:background="@drawable/shape_line"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

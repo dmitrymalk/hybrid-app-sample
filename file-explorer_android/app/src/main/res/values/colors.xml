@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="divider">#EEEEEE</color>
+    <color name="accent">#E3F2FD</color>
+    <color name="dark">#1976D2</color>
+</resources>

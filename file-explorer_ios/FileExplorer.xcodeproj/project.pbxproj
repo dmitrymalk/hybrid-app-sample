@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41617F31AB3921F005E680A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B41617F21AB3921F005E680A /* libicucore.dylib */; };
+		B41617F51AB39226005E680A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B41617F41AB39226005E680A /* libz.dylib */; };
+		B41618121AB39695005E680A /* FileFilter.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180A1AB39695005E680A /* FileFilter.java */; };
+		B41618131AB39695005E680A /* FileLoaderCallbacks.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180B1AB39695005E680A /* FileLoaderCallbacks.java */; };
+		B41618141AB39695005E680A /* FileSystem.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180C1AB39695005E680A /* FileSystem.java */; };
+		B41618151AB39695005E680A /* FileSystemUtils.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180D1AB39695005E680A /* FileSystemUtils.java */; };
+		B41618161AB39695005E680A /* Java2ObjcExampleClass.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180E1AB39695005E680A /* Java2ObjcExampleClass.java */; };
+		B41618171AB39695005E680A /* LocalFile.java in Sources */ = {isa = PBXBuildFile; fileRef = B416180F1AB39695005E680A /* LocalFile.java */; };
+		B41618181AB39695005E680A /* LocalFolder.java in Sources */ = {isa = PBXBuildFile; fileRef = B41618101AB39695005E680A /* LocalFolder.java */; };
+		B41618191AB39695005E680A /* Thumbnail.java in Sources */ = {isa = PBXBuildFile; fileRef = B41618111AB39695005E680A /* Thumbnail.java */; };
+		B430CEC91AB48026005EF159 /* j2objc-generated in Resources */ = {isa = PBXBuildFile; fileRef = B430CEC81AB48026005EF159 /* j2objc-generated */; };
 		B45FAB641AA3605D00652AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB631AA3605D00652AA6 /* main.m */; };
 		B45FAB671AA3605D00652AA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB661AA3605D00652AA6 /* AppDelegate.m */; };
 		B45FAB6A1AA3605D00652AA6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB691AA3605D00652AA6 /* MasterViewController.m */; };
@@ -15,8 +26,10 @@
 		B45FAB721AA3605D00652AA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB711AA3605D00652AA6 /* Images.xcassets */; };
 		B45FAB751AA3605D00652AA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB731AA3605D00652AA6 /* LaunchScreen.xib */; };
 		B45FAB811AA3605D00652AA6 /* FileExplorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB801AA3605D00652AA6 /* FileExplorerTests.m */; };
-		B4A8283C1AA3956000C90DA9 /* j2objc-generated in Resources */ = {isa = PBXBuildFile; fileRef = B4A8283B1AA3956000C90DA9 /* j2objc-generated */; };
-		B4A8283E1AA3956A00C90DA9 /* Java2ObjcExampleClass.java in Sources */ = {isa = PBXBuildFile; fileRef = B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */; };
+		B4B0C21C1AACFCD800C93AAE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C21B1AACFCD800C93AAE /* Security.framework */; };
+		B4B0C21E1AACFCDF00C93AAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C21D1AACFCDF00C93AAE /* UIKit.framework */; };
+		B4B0C2201AACFCE900C93AAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C21F1AACFCE900C93AAE /* Foundation.framework */; };
+		B4B0C2221AACFCF200C93AAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C2211AACFCF200C93AAE /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -26,11 +39,10 @@
 			fileType = sourcecode.java;
 			isEditable = 1;
 			outputFiles = (
-				"$(DERIVED_FILE_DIR)/myfile",
-				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
 				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.h",
+				"${DERIVED_FILES_DIR}/${INPUT_FILE_BASE}.m",
 			);
-			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME not correctly defined \nin Settings.xcconfig, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${PROJECT_DIR}/../file-explorer_android/app/src/main/java/engine\" --no-package-directories -g ${INPUT_FILE_PATH};";
+			script = "if [ ! -f \"${J2OBJC_HOME}/j2objc\" ]; then echo \"J2OBJC_HOME not correctly defined in Settings.xcconfig, currently set to '${J2OBJC_HOME}'\"; exit 1; fi;\n\"${J2OBJC_HOME}/j2objc\" -d ${DERIVED_FILES_DIR} -sourcepath \"${PROJECT_DIR}/../file-explorer_android/app/src/main/java\" --no-package-directories -use-arc --prefix engine=Engine -g ${INPUT_FILE_PATH};";
 		};
 /* End PBXBuildRule section */
 
@@ -45,6 +57,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B41617F21AB3921F005E680A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		B41617F41AB39226005E680A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B416180A1AB39695005E680A /* FileFilter.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FileFilter.java; sourceTree = "<group>"; };
+		B416180B1AB39695005E680A /* FileLoaderCallbacks.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FileLoaderCallbacks.java; sourceTree = "<group>"; };
+		B416180C1AB39695005E680A /* FileSystem.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FileSystem.java; sourceTree = "<group>"; };
+		B416180D1AB39695005E680A /* FileSystemUtils.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = FileSystemUtils.java; sourceTree = "<group>"; };
+		B416180E1AB39695005E680A /* Java2ObjcExampleClass.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Java2ObjcExampleClass.java; sourceTree = "<group>"; };
+		B416180F1AB39695005E680A /* LocalFile.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = LocalFile.java; sourceTree = "<group>"; };
+		B41618101AB39695005E680A /* LocalFolder.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = LocalFolder.java; sourceTree = "<group>"; };
+		B41618111AB39695005E680A /* Thumbnail.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Thumbnail.java; sourceTree = "<group>"; };
+		B430CEC81AB48026005EF159 /* j2objc-generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "j2objc-generated"; sourceTree = "<group>"; };
 		B45FAB5E1AA3605D00652AA6 /* FileExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45FAB621AA3605D00652AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45FAB631AA3605D00652AA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -61,8 +84,10 @@
 		B45FAB7F1AA3605D00652AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45FAB801AA3605D00652AA6 /* FileExplorerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileExplorerTests.m; sourceTree = "<group>"; };
 		B4A828161AA3832400C90DA9 /* Settings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Settings.xcconfig; sourceTree = "<group>"; };
-		B4A8283B1AA3956000C90DA9 /* j2objc-generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "j2objc-generated"; sourceTree = "<group>"; };
-		B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.java; path = Java2ObjcExampleClass.java; sourceTree = "<group>"; };
+		B4B0C21B1AACFCD800C93AAE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B4B0C21D1AACFCDF00C93AAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B4B0C21F1AACFCE900C93AAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4B0C2211AACFCF200C93AAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +95,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B41617F51AB39226005E680A /* libz.dylib in Frameworks */,
+				B41617F31AB3921F005E680A /* libicucore.dylib in Frameworks */,
+				B4B0C2221AACFCF200C93AAE /* CoreGraphics.framework in Frameworks */,
+				B4B0C2201AACFCE900C93AAE /* Foundation.framework in Frameworks */,
+				B4B0C21E1AACFCDF00C93AAE /* UIKit.framework in Frameworks */,
+				B4B0C21C1AACFCD800C93AAE /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +114,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B41618091AB39695005E680A /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				B416180A1AB39695005E680A /* FileFilter.java */,
+				B416180B1AB39695005E680A /* FileLoaderCallbacks.java */,
+				B416180C1AB39695005E680A /* FileSystem.java */,
+				B416180D1AB39695005E680A /* FileSystemUtils.java */,
+				B416180E1AB39695005E680A /* Java2ObjcExampleClass.java */,
+				B416180F1AB39695005E680A /* LocalFile.java */,
+				B41618101AB39695005E680A /* LocalFolder.java */,
+				B41618111AB39695005E680A /* Thumbnail.java */,
+			);
+			name = engine;
+			path = "../../file-explorer_android/app/src/main/java/engine";
+			sourceTree = "<group>";
+		};
 		B45FAB551AA3605D00652AA6 = {
 			isa = PBXGroup;
 			children = (
+				B41617F41AB39226005E680A /* libz.dylib */,
+				B41617F21AB3921F005E680A /* libicucore.dylib */,
+				B4B0C2211AACFCF200C93AAE /* CoreGraphics.framework */,
+				B4B0C21F1AACFCE900C93AAE /* Foundation.framework */,
+				B4B0C21D1AACFCDF00C93AAE /* UIKit.framework */,
+				B4B0C21B1AACFCD800C93AAE /* Security.framework */,
 				B4A828161AA3832400C90DA9 /* Settings.xcconfig */,
 				B45FAB601AA3605D00652AA6 /* FileExplorer */,
 				B45FAB7D1AA3605D00652AA6 /* FileExplorerTests */,
@@ -105,8 +158,8 @@
 		B45FAB601AA3605D00652AA6 /* FileExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				B4A8283B1AA3956000C90DA9 /* j2objc-generated */,
-				B4A828341AA392E900C90DA9 /* engine */,
+				B430CEC81AB48026005EF159 /* j2objc-generated */,
+				B41618091AB39695005E680A /* engine */,
 				B45FAB651AA3605D00652AA6 /* AppDelegate.h */,
 				B45FAB661AA3605D00652AA6 /* AppDelegate.m */,
 				B45FAB681AA3605D00652AA6 /* MasterViewController.h */,
@@ -145,15 +198,6 @@
 				B45FAB7F1AA3605D00652AA6 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B4A828341AA392E900C90DA9 /* engine */ = {
-			isa = PBXGroup;
-			children = (
-				B4A8283D1AA3956A00C90DA9 /* Java2ObjcExampleClass.java */,
-			);
-			name = engine;
-			path = "../../file-explorer_android/app/src/main/java/engine";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +284,7 @@
 			files = (
 				B45FAB701AA3605D00652AA6 /* Main.storyboard in Resources */,
 				B45FAB751AA3605D00652AA6 /* LaunchScreen.xib in Resources */,
-				B4A8283C1AA3956000C90DA9 /* j2objc-generated in Resources */,
+				B430CEC91AB48026005EF159 /* j2objc-generated in Resources */,
 				B45FAB721AA3605D00652AA6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +304,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B45FAB671AA3605D00652AA6 /* AppDelegate.m in Sources */,
-				B4A8283E1AA3956A00C90DA9 /* Java2ObjcExampleClass.java in Sources */,
+				B41618131AB39695005E680A /* FileLoaderCallbacks.java in Sources */,
+				B41618151AB39695005E680A /* FileSystemUtils.java in Sources */,
 				B45FAB6A1AA3605D00652AA6 /* MasterViewController.m in Sources */,
+				B41618121AB39695005E680A /* FileFilter.java in Sources */,
+				B41618161AB39695005E680A /* Java2ObjcExampleClass.java in Sources */,
+				B41618191AB39695005E680A /* Thumbnail.java in Sources */,
+				B41618141AB39695005E680A /* FileSystem.java in Sources */,
 				B45FAB641AA3605D00652AA6 /* main.m in Sources */,
 				B45FAB6D1AA3605D00652AA6 /* DetailViewController.m in Sources */,
+				B41618171AB39695005E680A /* LocalFile.java in Sources */,
+				B41618181AB39695005E680A /* LocalFolder.java in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +450,12 @@
 				INFOPLIST_FILE = FileExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "\"${J2OBJC_HOME}/lib\"";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-l\"jre_emul\"",
+					"-l\"icucore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -417,6 +474,12 @@
 				INFOPLIST_FILE = FileExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "\"${J2OBJC_HOME}/lib\"";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-l\"jre_emul\"",
+					"-l\"icucore\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
