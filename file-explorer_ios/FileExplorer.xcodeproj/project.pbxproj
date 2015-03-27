@@ -21,7 +21,6 @@
 		B45FAB641AA3605D00652AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB631AA3605D00652AA6 /* main.m */; };
 		B45FAB671AA3605D00652AA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB661AA3605D00652AA6 /* AppDelegate.m */; };
 		B45FAB6A1AA3605D00652AA6 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB691AA3605D00652AA6 /* MasterViewController.m */; };
-		B45FAB6D1AA3605D00652AA6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FAB6C1AA3605D00652AA6 /* DetailViewController.m */; };
 		B45FAB701AA3605D00652AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB6E1AA3605D00652AA6 /* Main.storyboard */; };
 		B45FAB721AA3605D00652AA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB711AA3605D00652AA6 /* Images.xcassets */; };
 		B45FAB751AA3605D00652AA6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45FAB731AA3605D00652AA6 /* LaunchScreen.xib */; };
@@ -30,6 +29,8 @@
 		B4B0C21E1AACFCDF00C93AAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C21D1AACFCDF00C93AAE /* UIKit.framework */; };
 		B4B0C2201AACFCE900C93AAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C21F1AACFCE900C93AAE /* Foundation.framework */; };
 		B4B0C2221AACFCF200C93AAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B0C2211AACFCF200C93AAE /* CoreGraphics.framework */; };
+		B4DCC98C1AB49CEE007063A9 /* FileListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DCC9841AB49CEE007063A9 /* FileListCell.m */; };
+		B4DCC98E1AB49CEE007063A9 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DCC9881AB49CEE007063A9 /* FileSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -75,8 +76,6 @@
 		B45FAB661AA3605D00652AA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B45FAB681AA3605D00652AA6 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		B45FAB691AA3605D00652AA6 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		B45FAB6B1AA3605D00652AA6 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		B45FAB6C1AA3605D00652AA6 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		B45FAB6F1AA3605D00652AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B45FAB711AA3605D00652AA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B45FAB741AA3605D00652AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -88,6 +87,10 @@
 		B4B0C21D1AACFCDF00C93AAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4B0C21F1AACFCE900C93AAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B4B0C2211AACFCF200C93AAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4DCC9831AB49CEE007063A9 /* FileListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListCell.h; sourceTree = "<group>"; };
+		B4DCC9841AB49CEE007063A9 /* FileListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListCell.m; sourceTree = "<group>"; };
+		B4DCC9871AB49CEE007063A9 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		B4DCC9881AB49CEE007063A9 /* FileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,14 +161,16 @@
 		B45FAB601AA3605D00652AA6 /* FileExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				B430CEC81AB48026005EF159 /* j2objc-generated */,
 				B41618091AB39695005E680A /* engine */,
+				B430CEC81AB48026005EF159 /* j2objc-generated */,
+				B4DCC9831AB49CEE007063A9 /* FileListCell.h */,
+				B4DCC9841AB49CEE007063A9 /* FileListCell.m */,
+				B4DCC9871AB49CEE007063A9 /* FileSystem.h */,
+				B4DCC9881AB49CEE007063A9 /* FileSystem.m */,
 				B45FAB651AA3605D00652AA6 /* AppDelegate.h */,
 				B45FAB661AA3605D00652AA6 /* AppDelegate.m */,
 				B45FAB681AA3605D00652AA6 /* MasterViewController.h */,
 				B45FAB691AA3605D00652AA6 /* MasterViewController.m */,
-				B45FAB6B1AA3605D00652AA6 /* DetailViewController.h */,
-				B45FAB6C1AA3605D00652AA6 /* DetailViewController.m */,
 				B45FAB6E1AA3605D00652AA6 /* Main.storyboard */,
 				B45FAB711AA3605D00652AA6 /* Images.xcassets */,
 				B45FAB731AA3605D00652AA6 /* LaunchScreen.xib */,
@@ -309,10 +314,11 @@
 				B45FAB6A1AA3605D00652AA6 /* MasterViewController.m in Sources */,
 				B41618121AB39695005E680A /* FileFilter.java in Sources */,
 				B41618161AB39695005E680A /* Java2ObjcExampleClass.java in Sources */,
+				B4DCC98E1AB49CEE007063A9 /* FileSystem.m in Sources */,
 				B41618191AB39695005E680A /* Thumbnail.java in Sources */,
 				B41618141AB39695005E680A /* FileSystem.java in Sources */,
 				B45FAB641AA3605D00652AA6 /* main.m in Sources */,
-				B45FAB6D1AA3605D00652AA6 /* DetailViewController.m in Sources */,
+				B4DCC98C1AB49CEE007063A9 /* FileListCell.m in Sources */,
 				B41618171AB39695005E680A /* LocalFile.java in Sources */,
 				B41618181AB39695005E680A /* LocalFolder.java in Sources */,
 			);

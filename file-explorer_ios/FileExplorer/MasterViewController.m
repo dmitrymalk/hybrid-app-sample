@@ -7,7 +7,10 @@
 //
 
 #import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "FileSystem.h"
+#import "FileListCell.h"
+#import "LocalFolder.h"
+#import "java/util/ArrayList.h"
 
 @interface MasterViewController ()
 
@@ -26,38 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Segues
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
+    if (self.items == nil) {
+        self.items = [FileSystem getDirectories];
     }
 }
 
@@ -68,28 +41,50 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return [self.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    FileListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellFileList" forIndexPath:indexPath];
+    
+    NSObject *object = [self.items objectAtIndex:[indexPath row]];
+    if ([object isKindOfClass: [EngineLocalFolder class]]) {
+        EngineLocalFolder * file = (EngineLocalFolder *) object;
+        [cell name].text = [file getDisplayName];
+        [cell thumbnail].image = [UIImage imageNamed:@"ic_folder_black_48dp.png"];
+    }
+    else if ([object isKindOfClass: [EngineLocalFile class]]) {
+        EngineLocalFile * file = (EngineLocalFile *) object;
+        if ([file getDisplayName] != nil) {
+            [cell name].text = [file getDisplayName];
+            [cell thumbnail].image = [UIImage imageNamed:@"ic_insert_drive_file_black_48dp.png"];
+        }
+    }
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EngineLocalFile * file = [self.items objectAtIndex:indexPath.row];
+    if ([file isKindOfClass:[EngineLocalFolder class]])
+    {
+        EngineLocalFolder * folder = (EngineLocalFolder *) file;
+        FileSystem * utils = [[FileSystem alloc] init];
+        JavaUtilArrayList *list = [JavaUtilArrayList new];
+        [utils findFilesInFolderWithJavaIoFile:[folder getFile] withJavaUtilList:list];
+        NSMutableArray *mutableArray = [NSMutableArray new];
+        for (int i = 0; i < list.size; i++)
+        {
+            [mutableArray addObject:[list getWithInt:i]];
+        }
+        MasterViewController *controller = (MasterViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+        controller.title = [file getDisplayName];
+        controller.items = mutableArray;
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = NO;
     }
 }
 
