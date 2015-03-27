@@ -64,7 +64,6 @@ public class FileSystemImpl implements FileSystem {
         if (mRoot == null) {
             File root = Environment.getRootDirectory();
             mRoot = new LocalFolderImpl(root);
-            mRoot.setPredefinedThumbnail(R.drawable.ic_android_grey600_24dp);
         }
         return mRoot;
     }
@@ -73,7 +72,6 @@ public class FileSystemImpl implements FileSystem {
         if (mStorage == null) {
             File root = Environment.getExternalStorageDirectory();
             mStorage = new LocalFolderImpl(root);
-            mStorage.setPredefinedThumbnail(R.drawable.ic_home_grey600_24dp);
         }
         return mStorage;
     }
@@ -82,7 +80,6 @@ public class FileSystemImpl implements FileSystem {
         if (mDcim == null) {
             File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             mDcim = new LocalFolderImpl(root);
-            mDcim.setPredefinedThumbnail(R.drawable.ic_photo_camera_grey600_24dp);
         }
         return mDcim;
     }
@@ -91,7 +88,6 @@ public class FileSystemImpl implements FileSystem {
         if (mDownloads == null) {
             File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             mDownloads = new LocalFolderImpl(root);
-            mDownloads.setPredefinedThumbnail(R.drawable.ic_get_app_grey600_24dp);
         }
         return mDownloads;
     }
@@ -100,7 +96,6 @@ public class FileSystemImpl implements FileSystem {
         if (mMusic == null) {
             File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
             mMusic = new LocalFolderImpl(root);
-            mMusic.setPredefinedThumbnail(R.drawable.ic_my_library_music_grey600_24dp);
         }
         return mMusic;
     }
@@ -109,7 +104,6 @@ public class FileSystemImpl implements FileSystem {
         if (mPictures == null) {
             File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
             mPictures = new LocalFolderImpl(root);
-            mPictures.setPredefinedThumbnail(R.drawable.ic_perm_media_grey600_24dp);
         }
         return mPictures;
     }
@@ -120,7 +114,6 @@ public class FileSystemImpl implements FileSystem {
             if (mDocuments == null) {
                 File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                 mDocuments = new LocalFolderImpl(root);
-                mDocuments.setPredefinedThumbnail(R.drawable.ic_insert_drive_file_grey600_24dp);
             }
         } catch (Exception e) {
             Log.e(LOG_TAG, "Exception, cannot get DIRECTORY_DOCUMENTS");
@@ -132,7 +125,6 @@ public class FileSystemImpl implements FileSystem {
         if (mMovies == null) {
             File root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
             mMovies = new LocalFolderImpl(root);
-            mMovies.setPredefinedThumbnail(R.drawable.ic_theaters_grey600_24dp);
         }
         return mMovies;
     }
