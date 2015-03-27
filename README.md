@@ -12,3 +12,6 @@ Sample of hybrid mobile application with common java engine classes for iOS 5.0+
 * Set up iOS project:
   * Open "FileExplorer.xcodeproj" in file-explorer_ios folder.
   * Set "J2OBJC_HOME" in Settings.xcconfig
+
+<img width="40%" src="https://cloud.githubusercontent.com/assets/2931932/6877070/916de932-d4de-11e4-9133-ef3dc2c3328f.png" />
+<img width="59%" src="https://cloud.githubusercontent.com/assets/2931932/6877071/9197608c-d4de-11e4-8547-99129017c137.png" />
