@@ -1,6 +1,6 @@
 # Hybrid App Sample
 
-Sample of hybrid mobile application with common java engine classes for iOS 5.0+ and Android 4.0+.
+Sample of hybrid mobile application with common java engine classes for iOS and Android.
 
 ### Getting Started
 
